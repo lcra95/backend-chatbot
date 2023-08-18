@@ -22,6 +22,7 @@ class MensajeriaRecibirResource(Resource):
             print("_----------------------------------_")
             print(data)
             print("_----------------------------------_")
+            print("_----------------------------------_")
             return data
         except Exception as e:
            exc_type, exc_obj, exc_tb = sys.exc_info()
