@@ -11,7 +11,7 @@ class TestingConfig(Config):
     """
     Testing configurations 
     """
-    SQLALCHEMY_DATABASE_URI = "mysql+pymysql://root:.*Dev.Napsis.2019@157.245.185.170:3306/MiCuenta"
+    SQLALCHEMY_DATABASE_URI = "mysql+pymysql://lrequena:18594LCra..@170.239.85.238/chat_bot"
     SQLALCHEMY_POOL_RECYCLE = 200
     DEBUG = True
     TESTING = True
@@ -31,7 +31,7 @@ class ProductionConfig(Config):
     """
     Production configurations
     """
-    SQLALCHEMY_DATABASE_URI = "mysql+pymysql://demo:Demo2020!@157.245.185.170:3306/bd_limpia_demo"
+    SQLALCHEMY_DATABASE_URI = "mysql+pymysql://lrequena:18594LCra..@170.239.85.238/chat_bot"
     DEBUG = True
     TESTING = False
     SQLALCHEMY_ECHO = False

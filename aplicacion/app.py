@@ -24,10 +24,10 @@ from ftplib import FTP
 from aplicacion.config import app_config
 from aplicacion.db import db
 from aplicacion.redis import redis
-
+from aplicacion.helpers.Twilio import Twilio
 
 # IMPORTACIÓN DE RECURSOS
-
+from aplicacion.recursos.Mensajeria import MensajeriaResource
 
 #Inicializacion de flask
 app = Flask(__name__)
@@ -47,7 +47,7 @@ redis.init_app(app)
 api = Api(app)
 
 # SE DEFINEN LOS ENDPOINTS Y LA CLASE QUE SE ENCARGARÁ DE PROCESAR CADA SOLICITUD
-
+api.add_resource(MensajeriaResource, '/whatsapp/enviar')
 
 #ROUTES
 @app.route('/')
