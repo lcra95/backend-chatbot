@@ -27,7 +27,7 @@ from aplicacion.redis import redis
 from aplicacion.helpers.Twilio import Twilio
 
 # IMPORTACIÓN DE RECURSOS
-from aplicacion.recursos.Mensajeria import MensajeriaResource
+from aplicacion.recursos.Mensajeria import MensajeriaResource,MensajeriaRecibirResource
 
 #Inicializacion de flask
 app = Flask(__name__)
