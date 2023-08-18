@@ -18,11 +18,11 @@ class MensajeriaResource(Resource):
 class MensajeriaRecibirResource(Resource):
     def post(self):
         try:
-            dataJson = request.get_json()
+            data = request.form.to_dict()
             print("_----------------------------------_")
-            print(dataJson)
+            print(data)
             print("_----------------------------------_")
-            return dataJson
+            return data
         except Exception as e:
            exc_type, exc_obj, exc_tb = sys.exc_info()
            fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
