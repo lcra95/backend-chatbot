@@ -48,6 +48,7 @@ api = Api(app)
 
 # SE DEFINEN LOS ENDPOINTS Y LA CLASE QUE SE ENCARGARÁ DE PROCESAR CADA SOLICITUD
 api.add_resource(MensajeriaResource, '/whatsapp/enviar')
+api.add_resource(MensajeriaRecibirResource, '/whatsapp/recibir')
 
 #ROUTES
 @app.route('/')
