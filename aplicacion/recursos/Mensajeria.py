@@ -19,10 +19,7 @@ class MensajeriaRecibirResource(Resource):
     def post(self):
         try:
             data = request.form.to_dict()
-            print("_----------------------------------_")
-            print(data)
-            print("_----------------------------------_")
-            print("_----------------------------------_")
+            Twilio.recibir_whatsapp(data)            
             return data
         except Exception as e:
            exc_type, exc_obj, exc_tb = sys.exc_info()

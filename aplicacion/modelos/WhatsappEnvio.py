@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from aplicacion.db import db
 
 class WhatsappEnviado(db.Model):
-    __tablename__ = 'whatsaap_enviado'
+    __tablename__ = 'mensajeria'
     __table_args__ = {'schema': 'chat_bot'}
     
     id = db.Column(db.Integer, primary_key=True)

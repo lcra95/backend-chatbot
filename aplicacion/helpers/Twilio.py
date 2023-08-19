@@ -59,5 +59,13 @@ class Twilio():
             WhatsappEnviado.insert_data(whatsapp_enviado)
             return {'estado':0,'mensaje': str(msj) }, 500
 
-    def recibir_whatsapp():
-        print("recibiendo")
+    def recibir_whatsapp(data):
+        whatsapp_enviado = {
+                "id_cliente" : data["AccountSid"],
+                "id_mensaje" : data["SmsSid"],
+                "from" : data["From"],
+                "to": data["To"],
+                "mensaje" : data["Body"],
+                "estado_envio" : 3,
+            }
+        WhatsappEnviado.insert_data(whatsapp_enviado)
