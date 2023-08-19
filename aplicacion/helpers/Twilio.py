@@ -61,13 +61,22 @@ class TwilioClass():
             return {'estado':0,'mensaje': str(msj) }, 500
 
     def recibir_whatsapp(data):
-        whatsapp_enviado = {
-                "id_cliente" : data["AccountSid"],
-                "id_mensaje" : data["SmsSid"],
-                "from" : data["From"],
-                "to": data["To"],
-                "mensaje" : data["Body"],
-                "estado_envio" : 3,
-            }
-        WhatsappEnviado.insert_data(whatsapp_enviado)
-        Openai.chatGpt(data["Body"])
+        try:
+            whatsapp_enviado = {
+                    "id_cliente" : data["AccountSid"],
+                    "id_mensaje" : data["SmsSid"],
+                    "from" : data["From"],
+                    "to": data["To"],
+                    "mensaje" : data["Body"],
+                    "estado_envio" : 3,
+                }
+            WhatsappEnviado.insert_data(whatsapp_enviado)
+            historial = WhatsappEnviado.buscar_historial(data["To"])
+            print(historial)
+            respuesta_actual = Openai.chatGpt(historial)
+            return respuesta_actual    
+        except Exception as e:
+           exc_type, exc_obj, exc_tb = sys.exc_info()
+           fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+           msj = 'Error: '+ str(exc_obj) + ' File: ' + fname +' linea: '+ str(exc_tb.tb_lineno)
+           return  str(msj)
