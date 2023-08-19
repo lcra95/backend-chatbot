@@ -24,7 +24,7 @@ from ftplib import FTP
 from aplicacion.config import app_config
 from aplicacion.db import db
 from aplicacion.redis import redis
-from aplicacion.helpers.Twilio import Twilio
+
 
 # IMPORTACIÓN DE RECURSOS
 from aplicacion.recursos.Mensajeria import MensajeriaResource,MensajeriaRecibirResource
@@ -53,6 +53,10 @@ api.add_resource(MensajeriaRecibirResource, '/whatsapp/recibir')
 #ROUTES
 @app.route('/')
 def index():
+    import openai
+    models = openai.Model.list()
+    print(models.data)
+
     return "Hola =)", 200
 
 #INICIAMOS LA APLICACIÓN

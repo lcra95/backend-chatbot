@@ -3,13 +3,14 @@ import sys,os
 from twilio.rest import Client
 from aplicacion.modelos.Integraciones import Integracion
 from aplicacion.modelos.WhatsappEnvio import WhatsappEnviado
+from aplicacion.helpers.Openai import Openai
 from aplicacion.enviroment import env
 enviroment = env
 # Puedes especificar el ambiente al instanciar o dejar que tome el valor por defecto del entorno
 
 
-class Twilio():
-    def enviar_whatsapp(data=None):
+class TwilioClass():
+    def enviar_whatsapp(data=None, body= None):
         integracion_data = Integracion.get_data('Twilio_whatsapp', enviroment)
         account_sid = integracion_data[0]["id_cliente"]
         auth_token = integracion_data[0]["authorization"]
@@ -17,7 +18,7 @@ class Twilio():
 
         # DEFAULT MENSAJE
         from_ = 'whatsapp:+14155238886',
-        body = 'Hola soy tu primer mensaje de whatsapp por integracion',
+        body = body,
         to = 'whatsapp:+56949980822'
         # DEFAULT MENSAJE
 
@@ -69,3 +70,4 @@ class Twilio():
                 "estado_envio" : 3,
             }
         WhatsappEnviado.insert_data(whatsapp_enviado)
+        Openai.chatGpt(data["Body"])

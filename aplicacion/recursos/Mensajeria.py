@@ -2,13 +2,13 @@ import json
 import sys,os
 from flask import Flask, request, jsonify
 from flask_restful import Resource, reqparse
-from aplicacion.helpers.Twilio import Twilio
+from aplicacion.helpers.Twilio import TwilioClass
 
 class MensajeriaResource(Resource):
     def post(self):
         try:
             dataJson = request.get_json()
-            Mensaje = Twilio.enviar_whatsapp()
+            Mensaje = TwilioClass.enviar_whatsapp()
             return Mensaje
         except Exception as e:
            exc_type, exc_obj, exc_tb = sys.exc_info()
@@ -19,7 +19,7 @@ class MensajeriaRecibirResource(Resource):
     def post(self):
         try:
             data = request.form.to_dict()
-            Twilio.recibir_whatsapp(data)            
+            TwilioClass.recibir_whatsapp(data)            
             return data
         except Exception as e:
            exc_type, exc_obj, exc_tb = sys.exc_info()
