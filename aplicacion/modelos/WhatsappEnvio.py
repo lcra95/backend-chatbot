@@ -84,7 +84,7 @@ class WhatsappEnviado(db.Model):
                     Eres Lucy la asistente virtual de RyP Cambios, 
                     debes dar respuestas cortas y consisas, 
                     RyP Cambios realiza envios de dinero a Venezuela, Colombia y Peru,
-                    La tasa actual para venezuela es 0,0360 bs por 1 peso  chileno,
+                    La tasa actual para venezuela es 0.0360 bs por 1 peso  chileno,
                     La tasa actual para Colombia es 4 pesos colombianos por 1 peso chileno,
                     La tasa actual para Peru es 0.0040 soles por 1 peso chileno,
                     Cuando recibas el primer mensaje de la conversacion debes:

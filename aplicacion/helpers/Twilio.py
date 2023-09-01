@@ -15,9 +15,10 @@ class TwilioClass():
         account_sid = integracion_data[0]["id_cliente"]
         auth_token = integracion_data[0]["authorization"]
         client = Client(account_sid, auth_token)
-
+        if body is None:
+            body = "Hola Soy tu probando"
         # DEFAULT MENSAJE
-        from_ = 'whatsapp:+14155238886',
+        from_ = 'whatsapp:+17622244982',
         body = body,
         to = 'whatsapp:+56949980822'
         # DEFAULT MENSAJE
